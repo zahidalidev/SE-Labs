@@ -54,6 +54,13 @@ namespace Lab2
 
                 string[] wrods = this.registerationNumber.Split('-'); //words to check numbers before and after -CS-
 
+                while ((wrods.Length != 3))  //length should be three
+                {
+                    Console.WriteLine("Enter Register Number eg. 2018-CS-123: ");
+                    this.registerationNumber = Console.ReadLine();
+                    wrods = this.registerationNumber.Split('-');
+                }
+
                 while ((wrods.Length == 3) && (!(Regex.IsMatch(wrods[0], @"^[0-9]+$") && Regex.IsMatch(wrods[2], @"^[0-9]+$"))) || ((this.registerationNumber.IndexOf("-CS-") <= 0) || (this.registerationNumber.IndexOf("-CS-") == this.registerationNumber.Length - 4)) || this.registerationNumber == "" || this.registerationNumber == " ")
                 {
                     Console.WriteLine("Enter Register Number eg. 2018-CS-123: ");
@@ -295,19 +302,6 @@ namespace Lab2
                 Console.WriteLine("\n\ndestructor called");
             }
         }
-
-        static void Main(string[] args)
-        {
-            Student st = new Student(); //object of student with paratmeterless constructor
-            Student stPar = new Student("Zahid Ali", "2018-CS-136"); //object of student with paratmeterize constructor
-
-            st.display(st);
-            stPar.display(stPar);
-
-            st.input();
-            st.toString(st);
-
-
-        }
+        
     }
 }
