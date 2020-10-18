@@ -36,6 +36,7 @@ namespace Lab2
             {
                 Console.WriteLine("\n\n***************************** Enter details for the student *****************************\n");
 
+
                 // validating student name in this validation i have used regular expressions
                 Console.WriteLine("Enter Student Name (only alphabets and space is allowed): ");
                 this.studentName = Console.ReadLine();
@@ -45,6 +46,7 @@ namespace Lab2
                     Console.WriteLine("Enter Student Name (only alphabets and space is allowed): ");
                     this.studentName = Console.ReadLine();
                 }
+
 
                 //validating student registration number in this validation i have used regular expressions
                 Console.WriteLine("\nEnter Register Number eg. 2018-CS-123: ");
@@ -61,10 +63,33 @@ namespace Lab2
                 }
 
 
-                
 
+
+                //Validating date of birth
                 Console.WriteLine("\nEnter Date of Birth eg. dd/mm/yyyy: ");
-                this.dateOfBirth = Convert.ToDateTime(Console.ReadLine());
+                string strDateOfBirth = Console.ReadLine();
+
+                DateTime temp;
+                Console.WriteLine();
+
+                while (!DateTime.TryParse(strDateOfBirth, out temp))  //cheking valid format of date
+                {
+                    Console.WriteLine("Enter Date in Valid format of DOB eg. dd/mm/yyyy or dd-m-yyyy: ");
+                    strDateOfBirth = Console.ReadLine();
+                }
+
+                this.dateOfBirth = Convert.ToDateTime(strDateOfBirth);
+
+                while (!(dateOfBirth < Convert.ToDateTime("01/01/2005") && dateOfBirth > Convert.ToDateTime("31/12/1990")))   //cheking date in valid range
+                {
+                    Console.WriteLine("Enter Date of Birth eg. dd/mm/yyyy: ");
+                    dateOfBirth = Convert.ToDateTime(Console.ReadLine());
+                }
+
+
+
+
+
 
                 Console.WriteLine("\nEnter CGPA");
                 this.CGPA = Convert.ToDouble(Console.ReadLine());
@@ -213,7 +238,7 @@ namespace Lab2
                 }
             }
 
-            public void printMembers(Student st)
+            public void display(Student st)
             {
                 Console.WriteLine("\n\n***************************** Current data members *****************************\n");
 
@@ -264,17 +289,17 @@ namespace Lab2
             //Student stPar = new Student("Hafiz", "2018-CS-000"); //object of student with paratmeterize constructor
 
             //st.input();
-            //st.printMembers(st);
+            //st.display(st);
             //st.toString(st);
 
             //Console.WriteLine("--------------------------------------------------------------------------------------------");
-            //stPar.printMembers(stPar);
+            //stPar.display(stPar);
             //stPar.toString(stPar);
 
-            //Console.WriteLine("Enter Register Number eg. 2018-CS-123: ");
-            //string registerationNumber = Console.ReadLine();
+
 
             
+
         }
     }
 }
