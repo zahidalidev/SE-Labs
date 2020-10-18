@@ -37,7 +37,7 @@ namespace Lab2
                 Console.WriteLine("\n\n***************************** Enter details for the student *****************************\n");
 
 
-                // validating student name in this validation i have used regular expressions
+                //_________ validating student name in this validation i have used regular expressions
                 Console.WriteLine("Enter Student Name (only alphabets and space is allowed): ");
                 this.studentName = Console.ReadLine();
 
@@ -48,13 +48,13 @@ namespace Lab2
                 }
 
 
-                //validating student registration number in this validation i have used regular expressions
+                //_________ validating student registration number in this validation i have used regular expressions
                 Console.WriteLine("\nEnter Register Number eg. 2018-CS-123: ");
                 this.registerationNumber = Console.ReadLine();
 
                 string[] wrods = this.registerationNumber.Split('-'); //words to check numbers before and after -CS-
 
-                while ((!(Regex.IsMatch(wrods[0], @"^[0-9]+$") && Regex.IsMatch(wrods[2], @"^[0-9]+$"))) || ((this.registerationNumber.IndexOf("-CS-") <= 0) || (this.registerationNumber.IndexOf("-CS-") == this.registerationNumber.Length - 4)) || this.registerationNumber == "" || this.registerationNumber == " ")
+                while ((wrods.Length == 3) && (!(Regex.IsMatch(wrods[0], @"^[0-9]+$") && Regex.IsMatch(wrods[2], @"^[0-9]+$"))) || ((this.registerationNumber.IndexOf("-CS-") <= 0) || (this.registerationNumber.IndexOf("-CS-") == this.registerationNumber.Length - 4)) || this.registerationNumber == "" || this.registerationNumber == " ")
                 {
                     Console.WriteLine("Enter Register Number eg. 2018-CS-123: ");
                     this.registerationNumber = Console.ReadLine();
@@ -65,7 +65,7 @@ namespace Lab2
 
 
 
-                //Validating date of birth
+                //________ Validating date of birth
                 Console.WriteLine("\nEnter Date of Birth eg. dd/mm/yyyy: ");
                 string strDateOfBirth = Console.ReadLine();
 
@@ -87,15 +87,28 @@ namespace Lab2
                 }
 
 
-
-
-
-
-                Console.WriteLine("\nEnter CGPA");
+                //_________ validating CGPA
+                Console.WriteLine("Enter CGPA");
                 this.CGPA = Convert.ToDouble(Console.ReadLine());
 
-                Console.WriteLine("\nEnter CNIC number: ");
+                while (!(this.CGPA > 0 && this.CGPA <= 4))
+                {
+                    Console.WriteLine("Enter CGPA between 0 and 4");
+                    this.CGPA = Convert.ToDouble(Console.ReadLine());
+                }
+
+
+
+                //________ Validating CNIN Number
+                Console.WriteLine("\nEnter CNIC number in 13 Digits: ");
                 this.CNIC = Console.ReadLine();
+
+                while (!(this.CNIC.Length == 13) || (!(Regex.IsMatch(this.CNIC, @"^[0-9]+$"))))
+                {
+                    Console.WriteLine("\nEnter CNIC number in 13 Digits: ");
+                    this.CNIC = Console.ReadLine();
+                }
+
 
                 //reading hobbies in array by using loop
                 Console.WriteLine("\nEnter Number of Hobbies");
@@ -285,20 +298,15 @@ namespace Lab2
 
         static void Main(string[] args)
         {
-            //Student st = new Student(); //object of student with paratmeterless constructor
-            //Student stPar = new Student("Hafiz", "2018-CS-000"); //object of student with paratmeterize constructor
+            Student st = new Student(); //object of student with paratmeterless constructor
+            Student stPar = new Student("Zahid Ali", "2018-CS-136"); //object of student with paratmeterize constructor
 
-            //st.input();
-            //st.display(st);
-            //st.toString(st);
+            st.display(st);
+            stPar.display(stPar);
 
-            //Console.WriteLine("--------------------------------------------------------------------------------------------");
-            //stPar.display(stPar);
-            //stPar.toString(stPar);
+            st.input();
+            st.toString(st);
 
-
-
-            
 
         }
     }
