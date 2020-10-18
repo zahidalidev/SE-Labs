@@ -1,0 +1,7 @@
+D:\online semesters\5th\SE Lab\labs\lab1\Lab2\bin\Debug\Lab2.exe.config
+D:\online semesters\5th\SE Lab\labs\lab1\Lab2\bin\Debug\Lab2.exe
+D:\online semesters\5th\SE Lab\labs\lab1\Lab2\bin\Debug\Lab2.pdb
+D:\online semesters\5th\SE Lab\labs\lab1\Lab2\obj\Debug\Lab2.csprojAssemblyReference.cache
+D:\online semesters\5th\SE Lab\labs\lab1\Lab2\obj\Debug\Lab2.csproj.CoreCompileInputs.cache
+D:\online semesters\5th\SE Lab\labs\lab1\Lab2\obj\Debug\Lab2.exe
+D:\online semesters\5th\SE Lab\labs\lab1\Lab2\obj\Debug\Lab2.pdb
